@@ -56,11 +56,6 @@ public class JwtTokenProvider {
         }
     }
 
-    private boolean isTokenRevoked(String token) {
-        // Implement logic to check if the token is revoked
-        return false; // Placeholder
-    }
-
     private Key getSigningKey() {
         byte[] keyBytes = Decoders.BASE64.decode(jwtSigningKey);
         return Keys.hmacShaKeyFor(keyBytes);

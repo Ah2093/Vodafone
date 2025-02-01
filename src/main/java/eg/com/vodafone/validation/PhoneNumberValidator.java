@@ -14,8 +14,7 @@ public class PhoneNumberValidator implements ConstraintValidator<PhoneNumber, St
             return false;
         }
 
-        // Updated regex to match Egyptian and Saudi mobile numbers
-        String regex = "^(010[0-9]{8})$";
+        String regex = "^(01[012][0-9]{8})$";
         return phoneNumber.matches(regex);
     }
 

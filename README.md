@@ -112,10 +112,9 @@ This project is a Spring Boot application that provides user registration and lo
 Ensure the following tools are installed:
 
 - Java 17 or higher
-
 - Maven 3.6.3 or higher
-
 - IDE (e.g., IntelliJ IDEA, Eclipse) for development (optional)
+- Docker and Docker-Compose if you want to run with 
 
 ### Running the Application
 
@@ -125,110 +124,90 @@ Follow the steps below to set up and run the application:
 1. Clone the repository:
 
 
-```bash
-git clone https://github.com/Ah2093/Vodafone.git
-
-cd Vodafone
-```
-2. Run app
-
-   - ### To Run Locally
-        - Build the project:
-        ```bash
-           mvn clean install
-        ```
-        - Run the application:
-
-        ```bash
-           mvn spring-boot:run
-        ```
-
-    - ### To Run Using Docker
-
-        - Build the project:
-        ```bash
-             docker-compose up  
-        ```
-
-3. Access the application:
-
-- Registration: http://localhost:8080/view/register
-
-- Login: http://localhost:8080/view/login
-
-- Welcome: http://localhost:8080/view/welcome
-
-
-## Example Requests
-
-
-
-### Registration
-
-```bash
-
-
-POST /api/auth/register
-
-Content-Type: application/json
-
+```bash  
+git clone https://github.com/Ah2093/Vodafone.git  
+cd Vodafone```  
+2. Run app  
   
-
-{
-
-    "firstName": "Test",
-
-    "lastName": "User",
-
-    "userName": "testuser",
-
-    "email": "testuser@example.com",
-
-    "password": "password123",
-
-    "phoneNumber": "0103456789"
-
-}
-
+   - ### To Run Locally  
+     - Build the project:  
+        ```bash  
+        mvn clean install  
+        ```        - Run the application:  
   
-  ```
-
-### Login
-
-```bash
-
-
-POST /api/auth/login
-
-Content-Type: application/json
-
+        ```bash  
+        mvn spring-boot:run  
+        ```  
+    - ### To Run Using Docker  
   
-
-{
-
-    "userName": "testuser",
-
-    "password": "password123"
-
-}
-
+      - Build the project:  
+        ```bash  
+           docker-compose up    
+        ```  
+3. Access the application:  
   
-  ```
+- Registration: http://localhost:8080/view/register  
+  
+- Login: http://localhost:8080/view/login  
+  
+- Welcome: http://localhost:8080/view/welcome  
+  
+  
+## Example Requests  
+  
+### For Backend  
 
+- ### Registration  
+  
+```bash  
+  
+  
+POST /api/auth/register  
+  
+Content-Type: application/json  
+  
+    
+{  
+    "firstName": "Test",  
+    "lastName": "User",  
+    "userName": "testuser",  
+    "email": "testuser@example.com",  
+    "password": "password123",  
+    "phoneNumber": "0103456789"  
+}  
+  
+  ```  
+- ### Login
+
+```bash  
+  
+POST /api/auth/login  
+  
+Content-Type: application/json  
+    
+{  
+  
+    "userName": "testuser",  
+    "password": "password123"  
+}  
+  
+  ```  
 
 ### Welcome Page
 
+```bash  
+GET /view/welcome  
+  
+Authorization: Bearer <JWT_TOKEN>  
+  ```  
 
-
-```bash
-GET /view/welcome
-
-
-Authorization: Bearer <JWT_TOKEN>
-
-  ```
-
-
+### For Frontend
+Registration: http://localhost:8080/view/register  
+![[[RegisterPage.jpg]]()]
+Login: http://localhost:8080/view/login
+![[Login Page.jpg]]
+Welcome: http://localhost:8080/view/welcome
+![[welcomepage.jpg]]
 
 ## License
 

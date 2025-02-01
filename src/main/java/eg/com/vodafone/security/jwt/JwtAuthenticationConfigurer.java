@@ -22,7 +22,7 @@ public class JwtAuthenticationConfigurer extends AbstractHttpConfigurer<JwtAuthe
         http.authenticationProvider(apiKeyAuthenticationProvider);
         AuthenticationManager authenticationManager = http.getSharedObject(AuthenticationManager.class);
 
-        JwtAuthenticationFilter apiKeyAuthenticationFilter = new JwtAuthenticationFilter(authenticationManager);
-        http.addFilterBefore(apiKeyAuthenticationFilter, BasicAuthenticationFilter.class);
+        JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(authenticationManager);
+        http.addFilterBefore(jwtAuthenticationFilter, BasicAuthenticationFilter.class);
     }
 }

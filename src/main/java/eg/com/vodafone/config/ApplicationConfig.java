@@ -1,7 +1,7 @@
 package eg.com.vodafone.config;
 
 
-import eg.com.vodafone.ResponseDto.UserProfileResponse;
+import eg.com.vodafone.dto.UserProfileResponse;
 import eg.com.vodafone.model.Customer;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;

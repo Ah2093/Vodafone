@@ -1,9 +1,9 @@
 package eg.com.vodafone.controller;
 
-import eg.com.vodafone.RequestDto.LogInRequest;
-import eg.com.vodafone.RequestDto.RegisterRequest;
-import eg.com.vodafone.ResponseDto.LogInResponse;
-import eg.com.vodafone.ResponseDto.RegisterResponse;
+import eg.com.vodafone.dto.LogInRequest;
+import eg.com.vodafone.dto.RegisterRequest;
+import eg.com.vodafone.dto.LogInResponse;
+import eg.com.vodafone.dto.RegisterResponse;
 import eg.com.vodafone.service.CustomerServiceAuth;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -75,7 +75,7 @@ class AuthControllerTest {
         mockMvc.perform(post("/api/auth/register")
                         .contentType("application/json")
                         .content("{\"userName\":\"testuser\", \"email\":\"test@example.com\", \"password\":\"password\", \"phoneNumber\":\"01023456789\", \"firstName\":\"Test\", \"lastName\":\"User\"}"))
-                .andExpect(status().isBadRequest())  // Expecting 400 Bad Request
+                .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$").value("Email already registered"));
     }
 

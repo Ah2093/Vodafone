@@ -1,4 +1,4 @@
-package eg.com.vodafone.RequestDto;
+package eg.com.vodafone.dto;
 
 import eg.com.vodafone.validation.PhoneNumber;
 import jakarta.validation.constraints.Email;

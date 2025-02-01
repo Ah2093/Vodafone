@@ -12,18 +12,15 @@ document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
 
     const data = await response.json();
     if (response.ok) {
-        // Store the token in local storage
         localStorage.setItem('authToken', data.token);
-        // Redirect to the welcome page
-        window.location.href = '/view/welcome';
+
+        console.log(" Now check authentication and fetch the profile before redirecting")
+        fetchAndRenderHTML();
     } else {
-        // Handle the error
         alert('Login failed!');
     }
 });
 
-
-// Registration Form Handler
 document.getElementById('registerForm')?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -46,9 +43,10 @@ document.getElementById('registerForm')?.addEventListener('submit', async (e) =>
     const responseDiv = document.getElementById('response');
 
     if (response.ok) {
+        console.log(" Now check authentication and fetch the profile before redirecting")
         responseDiv.innerHTML = 'Registration successful! Redirecting...';
         responseDiv.style.color = 'green';
-        setTimeout(() => window.location.href = '/view/login', 1000);
+        setTimeout(() => window.location.href = '/view/login', 3000);
     } else {
         responseDiv.innerHTML = `Error: ${data.message || 'Registration failed'}`;
         responseDiv.style.color = 'red';
@@ -56,33 +54,37 @@ document.getElementById('registerForm')?.addEventListener('submit', async (e) =>
 });
 
 
-if (window.location.pathname === '/view/welcome') {
+function fetchAndRenderHTML() {
     const token = localStorage.getItem('authToken');
-    if (!token) {
-        // If no token, redirect to login
-        window.location.href = '/view/login';
-    } else {
-        // Fetch user profile with Authorization header
-        fetch('/view/welcome', {
-            headers: {'Authorization': `Bearer ${token}`}
+    console.log(token )
+
+    fetch('/view/welcome', {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${token}` }
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch content');
+            }
+            return response.text();
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(data => {
-                console.log('Profile data fetched successfully');
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    }
+        .then(html => {
+            const newWindow = window.open('', '_blank');
+            if (newWindow) {
+                newWindow.document.write(html);
+                newWindow.document.close();
+            } else {
+                console.error("Popup blocked! Allow popups for this site.");
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching HTML:', error);
+            window.location.href = '/view/login';
+        });
 }
 
 
-// Logout Function
+
 function logout() {
     localStorage.removeItem('authToken');
     window.location.href = '/view/login';

@@ -25,10 +25,9 @@ public class SecurityConfig {
         http.authorizeHttpRequests(r -> r
                 .requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
                 .requestMatchers("/view/login", "/view/register").permitAll()
-                .requestMatchers("/view/welcome").authenticated()
-                .requestMatchers("/api/auth/welcome").authenticated()
+                .requestMatchers("/view/welcome").hasAuthority("read")
                 .requestMatchers("/css/**", "/js/**").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
         );
 
     }

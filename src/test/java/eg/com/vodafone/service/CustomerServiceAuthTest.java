@@ -1,10 +1,10 @@
 package eg.com.vodafone.service;
 
-import eg.com.vodafone.RequestDto.LogInRequest;
-import eg.com.vodafone.RequestDto.RegisterRequest;
-import eg.com.vodafone.ResponseDto.LogInResponse;
-import eg.com.vodafone.ResponseDto.RegisterResponse;
-import eg.com.vodafone.ResponseDto.UserProfileResponse;
+import eg.com.vodafone.dto.LogInRequest;
+import eg.com.vodafone.dto.RegisterRequest;
+import eg.com.vodafone.dto.LogInResponse;
+import eg.com.vodafone.dto.RegisterResponse;
+import eg.com.vodafone.dto.UserProfileResponse;
 import eg.com.vodafone.model.Customer;
 import eg.com.vodafone.repository.UserRepository;
 import eg.com.vodafone.security.jwt.JwtTokenProvider;
@@ -53,7 +53,7 @@ class CustomerServiceAuthTest {
                 .password("password")
                 .firstName("Test")
                 .lastName("User")
-                .phonenumber("01012345678")
+                .phoneNumber("01012345678")
                 .build();
     }
 

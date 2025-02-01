@@ -1,10 +1,10 @@
 package eg.com.vodafone.controller;
 
 
-import eg.com.vodafone.RequestDto.LogInRequest;
-import eg.com.vodafone.RequestDto.RegisterRequest;
-import eg.com.vodafone.ResponseDto.LogInResponse;
-import eg.com.vodafone.ResponseDto.RegisterResponse;
+import eg.com.vodafone.dto.LogInRequest;
+import eg.com.vodafone.dto.RegisterRequest;
+import eg.com.vodafone.dto.LogInResponse;
+import eg.com.vodafone.dto.RegisterResponse;
 import eg.com.vodafone.service.CustomerServiceAuth;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

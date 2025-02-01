@@ -1,4 +1,4 @@
-package eg.com.vodafone.RequestDto;
+package eg.com.vodafone.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

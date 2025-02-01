@@ -1,4 +1,4 @@
-package eg.com.vodafone.ResponseDto;
+package eg.com.vodafone.dto;
 
 import lombok.Data;
 
