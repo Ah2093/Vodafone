@@ -126,42 +126,37 @@ Follow the steps below to set up and run the application:
 
 
 ```bash
+git clone https://github.com/Ah2093/Vodafone.git
 
-git clone https://github.com/your-repo/vodafone-auth-system.git
-
-cd vodafone-auth-system
+cd Vodafone
 ```
+2. Run app
 
-  
+   - ### To Run Locally
+        - Build the project:
+        ```bash
+           mvn clean install
+        ```
+        - Run the application:
 
-  
+        ```bash
+           mvn spring-boot:run
+        ```
 
-2. Build the project:
-```bash
+    - ### To Run Using Docker
 
+        - Build the project:
+        ```bash
+             docker-compose up  
+        ```
 
-   mvn clean install
-```
-
-
-
-3. Run the application:
-
-```bash
-
-   mvn spring-boot:run
-
-```  
-
-
-4. Access the application:
+3. Access the application:
 
 - Registration: http://localhost:8080/view/register
 
 - Login: http://localhost:8080/view/login
 
 - Welcome: http://localhost:8080/view/welcome
-
 
 
 ## Example Requests
