@@ -1,8 +1,8 @@
 package eg.com.vodafone.RequestDto;
 
+import eg.com.vodafone.validation.PhoneNumber;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +20,7 @@ public class RegisterRequest {
     private String userName;
 
     @NotBlank(message = "phoneNumber is required")
-    @com.eg.vodafone.validation.PhoneNumber
+    @PhoneNumber
     private String phoneNumber;
 
     @NotBlank

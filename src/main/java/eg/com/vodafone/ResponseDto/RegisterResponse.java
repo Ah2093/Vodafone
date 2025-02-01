@@ -1,4 +1,3 @@
-// SignUpResponse.java
 package eg.com.vodafone.ResponseDto;
 
 import lombok.Data;
