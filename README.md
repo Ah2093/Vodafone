@@ -124,19 +124,28 @@ Follow the steps below to set up and run the application:
 1. Clone the repository:
 
 
-```bash  git clone https://github.com/Ah2093/Vodafone.git  cd Vodafone```  2. Run app
-- ### To Run Locally- Build the project:        ```bash
-mvn clean install        ```        - Run the application:
+```bash
+git clone https://github.com/Ah2093/Vodafone.git
+cd Vodafone
+```
+2. Run app
+- ### To Run Locally- Build the project:
+```bash
+mvn clean install
+```        
+- Run the application:
 
-        ```bash    
-mvn spring-boot:run        ```    
+```bash    
+mvn spring-boot:run        
+```    
 - ### To Run Using Docker
 
-      - Build the project:    
-        ```bash    
+  - Build the project:    
+```bash    
 docker-compose up
-     ```  
-     1. Access the application:
+ ```
+ 
+1. Access the application:
 
 - Registration: http://localhost:8080/view/register
 
@@ -157,9 +166,17 @@ POST /api/auth/register
 Content-Type: application/json    
     
       
-{      "firstName": "Test",      "lastName": "User",      "userName": "testuser",      "email": "testuser@example.com",      "password": "password123",      "phoneNumber": "0103456789"  }    
+{
+        "firstName": "Test",
+        "lastName": "User",
+        "userName": "testuser",
+        "email": "testuser@example.com",
+        "password": "password123",
+        "phoneNumber": "0103456789"
+}    
     
-  ```  
+  ```
+
 ![image](https://github.com/user-attachments/assets/0fc68005-bb18-4ee0-83e5-de33cf404f05)
 
 - ### Login
@@ -171,8 +188,10 @@ POST /api/auth/login
 Content-Type: application/json    
       
 {    
-    
-    "userName": "testuser",      "password": "password123"  }    
+
+        "userName": "testuser",
+        "password": "password123"
+}    
   
   ```  
 ![image](https://github.com/user-attachments/assets/d8ea6e08-9813-422f-8229-20dbe6257c2c)
