@@ -176,7 +176,9 @@ Content-Type: application/json
     "phoneNumber": "0103456789"  
 }  
   
-  ```  
+  ```
+![image](https://github.com/user-attachments/assets/0fc68005-bb18-4ee0-83e5-de33cf404f05)
+
 - ### Login
 
 ```bash  
@@ -192,6 +194,8 @@ Content-Type: application/json
 }  
   
   ```  
+![image](https://github.com/user-attachments/assets/d8ea6e08-9813-422f-8229-20dbe6257c2c)
+
 
 ### Welcome Page
 
@@ -200,14 +204,18 @@ GET /view/welcome
   
 Authorization: Bearer <JWT_TOKEN>  
   ```  
+![image](https://github.com/user-attachments/assets/cd0defb0-0ef5-4ded-83f4-b771483e85b8)
+
 
 ### For Frontend
 Registration: http://localhost:8080/view/register  
-![[[RegisterPage.jpg]]()]
+![RegisterPage](https://github.com/user-attachments/assets/ba675db3-0e76-4594-867f-e467609de1d0)
+
 Login: http://localhost:8080/view/login
-![[Login Page.jpg]]
+![Login Page](https://github.com/user-attachments/assets/76553d21-3112-441b-beb3-6436bf3b8daf)
+
 Welcome: http://localhost:8080/view/welcome
-![[welcomepage.jpg]]
+![welcomepage](https://github.com/user-attachments/assets/fcb6f5b3-1bdb-4cb3-b0c4-cfa662c1f9e7)
 
 ## License
 
