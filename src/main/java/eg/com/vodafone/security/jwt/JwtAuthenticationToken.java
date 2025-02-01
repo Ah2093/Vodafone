@@ -40,7 +40,7 @@ public class JwtAuthenticationToken implements CredentialsContainer, Authenticat
 
     @Override
     public Object getDetails() {
-        return null; // You can implement this if you need to provide additional details
+        return null;
     }
 
     @Override
@@ -53,7 +53,6 @@ public class JwtAuthenticationToken implements CredentialsContainer, Authenticat
         return this.principal == null ? null : this.principal.getUsername();
     }
 
-    // Allows the ProviderManager to erase the credentials so they don't remain in-memory
     @Override
     public void eraseCredentials() {
         this.token = null;
