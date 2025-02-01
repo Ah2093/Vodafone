@@ -48,7 +48,7 @@ document.getElementById('registerForm')?.addEventListener('submit', async (e) =>
     if (response.ok) {
         responseDiv.innerHTML = 'Registration successful! Redirecting...';
         responseDiv.style.color = 'green';
-        setTimeout(() => window.location.href = '/view/login', 1500);
+        setTimeout(() => window.location.href = '/view/login', 1000);
     } else {
         responseDiv.innerHTML = `Error: ${data.message || 'Registration failed'}`;
         responseDiv.style.color = 'red';
