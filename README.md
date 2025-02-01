@@ -209,12 +209,15 @@ Authorization: Bearer <JWT_TOKEN>
 
 ### For Frontend
 Registration: http://localhost:8080/view/register  
+
 ![RegisterPage](https://github.com/user-attachments/assets/ba675db3-0e76-4594-867f-e467609de1d0)
 
 Login: http://localhost:8080/view/login
+
 ![Login Page](https://github.com/user-attachments/assets/76553d21-3112-441b-beb3-6436bf3b8daf)
 
 Welcome: http://localhost:8080/view/welcome
+
 ![welcomepage](https://github.com/user-attachments/assets/fcb6f5b3-1bdb-4cb3-b0c4-cfa662c1f9e7)
 
 ## License
