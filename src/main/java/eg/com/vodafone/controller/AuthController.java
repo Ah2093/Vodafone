@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/api/auth/")
 public class AuthController {
 
@@ -21,14 +21,12 @@ public class AuthController {
     private CustomerServiceAuth customerServiceAuth;
 
     @PostMapping("/register")
-    @ResponseBody
     public ResponseEntity<RegisterResponse> register(@Valid @RequestBody RegisterRequest registerRequest) {
         RegisterResponse registerResponse = customerServiceAuth.registerUser(registerRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(registerResponse);
     }
 
     @PostMapping("/login")
-    @ResponseBody
     public ResponseEntity<LogInResponse> logIn(@Valid @RequestBody LogInRequest logInRequest) {
         LogInResponse logInResponse = customerServiceAuth.authenticateUser(logInRequest);
         return ResponseEntity.ok(logInResponse);
