@@ -14,7 +14,7 @@ public class PhoneNumberValidator implements ConstraintValidator<PhoneNumber, St
             return false;
         }
 
-        String regex = "^(01[012][0-9]{8})$";
+        String regex = "^(01[0125][0-9]{8})$";
         return phoneNumber.matches(regex);
     }
 
