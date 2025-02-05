@@ -10,27 +10,28 @@ import eg.com.vodafone.model.Customer;
 import eg.com.vodafone.repository.UserRepository;
 import eg.com.vodafone.security.jwt.JwtTokenProvider;
 import eg.com.vodafone.security.userDetailsService.JpaUserDetailsService;
-import eg.com.vodafone.util.MapperUtil;
+import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class CustomerServiceAuth {
 
-    @Autowired
-    private JpaUserDetailsService userDetailsService;
+    private final JpaUserDetailsService userDetailsService;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private JwtTokenProvider jwtTokenProvider;
+    private final JwtTokenProvider jwtTokenProvider;
     @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
     @Autowired
-    private MapperUtil mapperUtil;
+    private final ModelMapper mapper;
 
     public RegisterResponse registerUser(RegisterRequest registerRequest) {
         if (userRepository.findByUserName(registerRequest.getUserName()).isPresent()) {
@@ -69,7 +70,7 @@ public class CustomerServiceAuth {
 
     public UserProfileResponse getUserProfile(String username) {
         Customer customer = getUserByUserNameOrThrow(username);
-        return mapperUtil.mapEntity(customer, UserProfileResponse.class);
+        return mapper.map(customer, UserProfileResponse.class);
     }
 
     private Customer getUserByUserNameOrThrow(String username) {

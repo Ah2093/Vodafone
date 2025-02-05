@@ -9,12 +9,12 @@ import eg.com.vodafone.model.Customer;
 import eg.com.vodafone.repository.UserRepository;
 import eg.com.vodafone.security.jwt.JwtTokenProvider;
 import eg.com.vodafone.security.userDetailsService.JpaUserDetailsService;
-import eg.com.vodafone.util.MapperUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -39,7 +39,7 @@ class CustomerServiceAuthTest {
     private UserRepository userRepository;
 
     @Mock
-    private MapperUtil mapperUtil;
+    private ModelMapper mapper;
 
     private Customer customer;
 
@@ -138,7 +138,7 @@ class CustomerServiceAuthTest {
     @Test
     void testGetUserProfile_Success() {
         when(userRepository.findByUserName(customer.getUserName())).thenReturn(java.util.Optional.of(customer));
-        when(mapperUtil.mapEntity(customer, UserProfileResponse.class)).thenReturn(new UserProfileResponse());
+        when(mapper.map(customer, UserProfileResponse.class)).thenReturn(new UserProfileResponse());
 
         UserProfileResponse response = customerServiceAuth.getUserProfile(customer.getUserName());
 
