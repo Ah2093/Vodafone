@@ -27,7 +27,7 @@ public class SecurityConfig {
                 .requestMatchers("/view/login", "/view/register").permitAll()
                 .requestMatchers("/view/welcome").hasAuthority("read")
                 .requestMatchers("/css/**", "/js/**").permitAll()
-                .anyRequest().permitAll()
+                .anyRequest().authenticated()
         );
 
     }
